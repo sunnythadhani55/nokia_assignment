@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/nokiadb</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Sunny@123</property>
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">10</property>
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <!-- Echo the SQL to stdout -->
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.generate_statistics">false</property>
+        <property name="hibernate.use_sql_comments">false</property>
+        <!-- Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+
+        <mapping class="com.nokia.entity.Part"/>
+        <mapping class="com.nokia.entity.Company"/>
+        <mapping class="com.nokia.entity.Manufacturer"/>
+        <mapping class="com.nokia.entity.PartManufacturer"/>
+        <mapping class="com.nokia.entity.CompanyStock"/>
+    </session-factory>
+</hibernate-configuration>
