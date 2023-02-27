@@ -1,17 +1,11 @@
 package com.nokia.entity;
 
 
-import static javax.persistence.GenerationType.AUTO;
-
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
+import static javax.persistence.GenerationType.AUTO;
 
 
 @Entity
@@ -85,9 +79,9 @@ public class Company {
     @Override
     public String toString() {
         return "Company{" +
-            "id=" + id +
-            ", balance=" + balance +
-            ", name='" + name + '\'' +
-            '}';
+                "id=" + id +
+                ", balance=" + balance +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

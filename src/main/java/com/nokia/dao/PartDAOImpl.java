@@ -10,12 +10,13 @@ import org.hibernate.query.Query;
 import java.util.List;
 import java.util.Optional;
 
-public class PartDAOImpl implements PartDAO{
-    private SessionFactory sessionFactory= DBSessionFactory.buildSessionFactory(Part.class);
+public class PartDAOImpl implements PartDAO {
+    private final SessionFactory sessionFactory = DBSessionFactory.buildSessionFactory(Part.class);
+
     @Override
     public void savePart(Part part) {
-        Session session=sessionFactory.openSession();
-        Transaction transaction=session.beginTransaction();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
 
         session.persist(part);
         transaction.commit();
@@ -23,16 +24,16 @@ public class PartDAOImpl implements PartDAO{
         session.close();
     }
 
-    public Optional<Part> getByName(String partName){
-        Session session=sessionFactory.openSession();
+    public Optional<Part> getByName(String partName) {
+        Session session = sessionFactory.openSession();
 
-        Query<Part> query = session.createQuery("SELECT p FROM Part p WHERE p.name = :partName",Part.class);
+        Query<Part> query = session.createQuery("SELECT p FROM Part p WHERE p.name = :partName", Part.class);
         query.setParameter("partName", partName);
         List<Part> parts = query.list();
 
         session.close();
 
-        if(parts.size()>0)
+        if (parts.size() > 0)
             return Optional.of(parts.get(0));
         else
             return Optional.empty();
@@ -40,8 +41,8 @@ public class PartDAOImpl implements PartDAO{
 
     @Override
     public List<Part> getAll() {
-        Session session=sessionFactory.openSession();
-        List<Part> partList= session.createQuery("FROM Part",Part.class).list();
+        Session session = sessionFactory.openSession();
+        List<Part> partList = session.createQuery("FROM Part", Part.class).list();
 
         session.close();
         return partList;

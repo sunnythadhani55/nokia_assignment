@@ -8,17 +8,19 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PartManufacturerBusiness {
-    public PartManufacturer getPartManufacturer(PartManufacturer inputPartManufacturer);
+    PartManufacturer getPartManufacturer(PartManufacturer inputPartManufacturer);
+
     PartManufacturer processPartManufacturerQuantity(
-        Optional<PartManufacturer> fetchedPartManufacturer,
-        PartManufacturer inputPartManufacturer);
+            Optional<PartManufacturer> fetchedPartManufacturer,
+            PartManufacturer inputPartManufacturer);
 
     Optional<Manufacturer> getManufacturer(String manufacturerName);
-    public Optional<Part> getPart(String partName);
+
+    Optional<Part> getPart(String partName);
 
     List<PartManufacturer> getPartManufacturerList(String partName, String manufacturerName);
 
     PartManufacturer getPartManufacturerWithUpdatedQuantiity(
-        List<PartManufacturer> partManufacturerList,
-        PartManufacturer boughtPartManufacturers);
+            List<PartManufacturer> partManufacturerList,
+            PartManufacturer boughtPartManufacturers);
 }

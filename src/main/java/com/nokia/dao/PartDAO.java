@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PartDAO {
-    public void savePart(Part part);
-    public Optional<Part> getByName(String partName);
+    void savePart(Part part);
 
-    public List<Part> getAll();
+    Optional<Part> getByName(String partName);
+
+    List<Part> getAll();
 }

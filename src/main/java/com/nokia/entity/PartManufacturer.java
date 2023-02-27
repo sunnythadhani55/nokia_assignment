@@ -1,13 +1,7 @@
 package com.nokia.entity;
 
+import javax.persistence.*;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "part_manufacturers")
@@ -95,9 +89,9 @@ public class PartManufacturer {
     @Override
     public String toString() {
         return "PartManufacturer{" +
-            "id=" + id +
-            ", quantity=" + quantity +
-            ", price=" + price +
-            '}';
+                "id=" + id +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                '}';
     }
 }

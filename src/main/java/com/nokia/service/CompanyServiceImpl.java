@@ -5,8 +5,9 @@ import com.nokia.dao.CompanyDAOImpl;
 import com.nokia.entity.Company;
 import com.nokia.utils.Formatter;
 
-public class CompanyServiceImpl implements CompanyService{
+public class CompanyServiceImpl implements CompanyService {
     private final CompanyDAO companyDAO;
+
     public CompanyServiceImpl(CompanyDAOImpl companyDAO) {
         this.companyDAO = companyDAO;
     }
@@ -14,14 +15,14 @@ public class CompanyServiceImpl implements CompanyService{
     @Override
     public void addMoney(Double money) {
 
-        try{
+        try {
             Company company = companyDAO.getCompany();
             double newBalance = company.getBalance() + money;
             company.setBalance(newBalance);
             companyDAO.updateBalance(company);
             Formatter.printSuccessfullExecution("Balance added successfullly....");
-            Formatter.printSuccessfullExecution("Updated balance: "+newBalance);
-        }catch (Exception ex){
+            Formatter.printSuccessfullExecution("Updated balance: " + newBalance);
+        } catch (Exception ex) {
             Formatter.printException("Balance could not be updated");
         }
     }
